@@ -211,6 +211,7 @@ class TravelDetailFragment : Fragment() {
             }
             R.id.action_refresh -> {
                 viewModel.refresh()
+                true
             }
             else -> super.onOptionsItemSelected(item)
         }
