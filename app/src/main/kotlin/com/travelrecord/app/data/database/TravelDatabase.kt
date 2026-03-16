@@ -10,6 +10,7 @@ import com.travelrecord.app.data.dao.TravelRecordDao
 import com.travelrecord.app.data.entity.ExpenseItem
 import com.travelrecord.app.data.entity.TravelProcess
 import com.travelrecord.app.data.entity.TravelRecord
+import java.util.Date
 
 /**
  * Room database for Travel Record application
@@ -104,10 +105,6 @@ abstract class TravelDatabase : RoomDatabase() {
  */
 class Converters {
     
-    // Currently no complex types need conversion
-    // Future converters can be added here if needed
-    // Example:
-    /*
     @TypeConverter
     fun fromTimestamp(value: Long?): Date? {
         return value?.let { Date(it) }
@@ -117,5 +114,4 @@ class Converters {
     fun dateToTimestamp(date: Date?): Long? {
         return date?.time
     }
-    */
 }

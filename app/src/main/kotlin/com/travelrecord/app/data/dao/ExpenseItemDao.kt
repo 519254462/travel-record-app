@@ -74,9 +74,11 @@ interface ExpenseItemDao {
     
     /**
      * Get expense summary by category for a specific travel record
+     * Note: Room doesn't support Map return type directly
+     * Use getExpensesByCategory instead and calculate in code
      */
-    @Query("SELECT category, SUM(amount) as total FROM expense_items WHERE travelRecordId = :travelRecordId GROUP BY category ORDER BY total DESC")
-    suspend fun getExpenseSummaryByCategory(travelRecordId: String): Map<String, Double>
+    // @Query("SELECT category, SUM(amount) as total FROM expense_items WHERE travelRecordId = :travelRecordId GROUP BY category ORDER BY total DESC")
+    // suspend fun getExpenseSummaryByCategory(travelRecordId: String): Map<String, Double>
     
     /**
      * Get all distinct categories used in expenses
