@@ -38,5 +38,5 @@
     <string name="delete_success">删除成功</string>
     <string name="error_save_failed">保存失败</string>
     <string name="error_load_failed">加载失败</string>
-    <string name="statistics_format">共 %d 条记录，总开销 ¥%.2f</string>
+    <string name="statistics_format" formatted="true">共 %d 条记录，总开销 ¥%.2f</string>
 </resources>
