@@ -10,7 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write  # 需要写权限来创建Release
+      
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -48,18 +50,23 @@ jobs:
     - name: Upload APK as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: travel-record-app-debug
+        name: travel-record-app-debug-${{ github.run_number }}
         path: app/build/outputs/apk/debug/app-debug.apk
         retention-days: 30
         
     - name: Create Release
       if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         tag_name: v1.0.${{ github.run_number }}
         name: Travel Record App v1.0.${{ github.run_number }}
         body: |
-          🧳 Android旅游记录应用
+          🧳 Android旅游记录应用 - 自动构建版本
+          
+          **构建信息**
+          - 构建编号: ${{ github.run_number }}
+          - 提交SHA: ${{ github.sha }}
+          - 分支: ${{ github.ref_name }}
           
           ## 功能特性
           - ✅ 旅游记录管理
@@ -69,15 +76,15 @@ jobs:
           - ✅ 本地数据存储
           
           ## 安装说明
-          1. 下载 `app-debug.apk` 文件
+          1. 下载下方的 `app-debug.apk` 文件
           2. 在Android设备上启用"未知来源"安装
           3. 安装APK文件
           
           ## 系统要求
           - Android 5.0 (API 21) 或更高版本
-        files: |
-          app/build/outputs/apk/debug/app-debug.apk
+        files: app/build/outputs/apk/debug/app-debug.apk
         draft: false
         prerelease: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        fail_on_unmatched_files: true
+        generate_release_notes: false
+      continue-on-error: true  # 如果Release创建失败，不影响整个工作流
