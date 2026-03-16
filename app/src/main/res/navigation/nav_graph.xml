@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/travelListFragment">
+
+    <fragment
+        android:id="@+id/travelListFragment"
+        android:name="com.travelrecord.app.ui.list.TravelListFragment"
+        android:label="@string/travel_records"
+        tools:layout="@layout/fragment_travel_list">
+        
+        <action
+            android:id="@+id/action_list_to_detail"
+            app:destination="@id/travelDetailFragment" />
+            
+        <action
+            android:id="@+id/action_list_to_add"
+            app:destination="@id/addEditTravelFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/travelDetailFragment"
+        android:name="com.travelrecord.app.ui.detail.TravelDetailFragment"
+        android:label="@string/travel_details"
+        tools:layout="@layout/fragment_travel_detail">
+        
+        <argument
+            android:name="travelId"
+            app:argType="string" />
+            
+        <action
+            android:id="@+id/action_detail_to_edit"
+            app:destination="@id/addEditTravelFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addEditTravelFragment"
+        android:name="com.travelrecord.app.ui.addedit.AddEditTravelFragment"
+        android:label="@string/add_travel"
+        tools:layout="@layout/fragment_add_edit_travel">
+        
+        <argument
+            android:name="travelId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+</navigation>

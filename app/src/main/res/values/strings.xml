@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">旅游记录</string>
+    <string name="travel_records">旅游记录</string>
+    <string name="add_travel">添加旅游</string>
+    <string name="edit_travel">编辑旅游</string>
+    <string name="travel_details">旅游详情</string>
+    <string name="travel_process">旅游过程</string>
+    <string name="expenses">开销记录</string>
+    <string name="total_expense">总开销</string>
+    <string name="add_process">添加过程</string>
+    <string name="add_expense">添加开销</string>
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
+    <string name="delete">删除</string>
+    <string name="edit">编辑</string>
+    <string name="title">标题</string>
+    <string name="purpose">目的</string>
+    <string name="task">任务</string>
+    <string name="start_date">开始日期</string>
+    <string name="end_date">结束日期</string>
+    <string name="description">描述</string>
+    <string name="amount">金额</string>
+    <string name="category">类别</string>
+    <string name="date">日期</string>
+    <string name="time">时间</string>
+    <string name="no_travels">暂无旅游记录</string>
+    <string name="no_processes">暂无过程记录</string>
+    <string name="no_expenses">暂无开销记录</string>
+    <string name="confirm_delete">确认删除</string>
+    <string name="delete_travel_message">确定要删除这条旅游记录吗？此操作不可撤销。</string>
+    <string name="error_title_required">请输入标题</string>
+    <string name="error_purpose_required">请输入目的</string>
+    <string name="error_amount_required">请输入金额</string>
+    <string name="error_amount_invalid">请输入有效金额</string>
+    <string name="error_description_required">请输入描述</string>
+    <string name="save_success">保存成功</string>
+    <string name="delete_success">删除成功</string>
+    <string name="error_save_failed">保存失败</string>
+    <string name="error_load_failed">加载失败</string>
+    <string name="statistics_format">共 %d 条记录，总开销 ¥%.2f</string>
+</resources>
